@@ -6,9 +6,24 @@ import {
   walletConnectWallet,
   braveWallet,
   ledgerWallet,
+  trustWallet,
+  argentWallet,
+  imTokenWallet,
+  injectedWallet,
+  omniWallet,
 } from "@rainbow-me/rainbowkit/wallets";
 import { configureChains } from "wagmi";
-import { mainnet, polygon, optimism, arbitrum, hardhat, localhost, goerli, polygonMumbai } from "wagmi/chains";
+import {
+  // mainnet,
+  // polygon,
+  // optimism,
+  // arbitrum,
+  hardhat,
+  localhost,
+  // goerli,
+  // polygonMumbai,
+  zkSyncTestnet,
+} from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import { burnerWalletConfig } from "~~/services/web3/wagmi-burner/burnerWalletConfig";
@@ -18,14 +33,15 @@ import { burnerWalletConfig } from "~~/services/web3/wagmi-burner/burnerWalletCo
  */
 export const appChains = configureChains(
   [
-    hardhat,
-    mainnet,
-    polygon,
-    optimism,
-    arbitrum,
-    polygon,
+    // mainnet,
+    // polygon,
+    // optimism,
+    // arbitrum,
+    // hardhat,
+    // polygon,
     // todo replace with config instead of env
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true" ? [goerli, polygonMumbai] : []),
+    // ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true" ? [goerli, polygonMumbai] : []),
+    zkSyncTestnet,
   ],
   [
     alchemyProvider({
@@ -80,6 +96,11 @@ export const wagmiConnectors = connectorsForWallets([
       coinbaseWallet({ appName: "scaffold-eth", chains: appChains.chains }),
       rainbowWallet({ chains: appChains.chains }),
       burnerWalletConfig({ chains: burnerChains.chains }),
+      trustWallet({ chains: burnerChains.chains }),
+      omniWallet({ chains: burnerChains.chains }),
+      argentWallet({ chains: burnerChains.chains }),
+      imTokenWallet({ chains: burnerChains.chains }),
+      injectedWallet({ chains: burnerChains.chains }),
     ],
   },
 ]);

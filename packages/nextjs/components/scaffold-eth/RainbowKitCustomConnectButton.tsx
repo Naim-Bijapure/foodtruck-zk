@@ -22,7 +22,7 @@ export default function RainbowKitCustomConnectButton() {
   useAutoConnect(tempAutoConnectConfig);
   const { switchNetwork } = useSwitchNetwork();
 
-  const publicNetworkName = String(process.env.NEXT_PUBLIC_NETWORK).toLowerCase() as ChainName;
+  const publicNetworkName = String(process.env.NEXT_PUBLIC_NETWORK) as ChainName;
   const definedChain = chain[publicNetworkName];
 
   const onSwitchNetwork = () => {

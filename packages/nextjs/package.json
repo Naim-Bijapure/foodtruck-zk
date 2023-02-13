@@ -19,7 +19,7 @@
     "@rainbow-me/rainbowkit": "^0.8.1",
     "@uniswap/sdk": "^3.0.3",
     "daisyui": "^2.31.0",
-    "ethers": "^5.0.0",
+    "ethers": "5.7.2",
     "next": "^13.1.6",
     "nextjs-progressbar": "^0.0.16",
     "react": "^18.2.0",
@@ -31,6 +31,7 @@
     "use-debounce": "^8.0.4",
     "usehooks-ts": "^2.7.2",
     "wagmi": "^0.10.15",
+    "zksync-web3": "^0.13.0",
     "zustand": "^4.1.2"
   },
   "devDependencies": {
